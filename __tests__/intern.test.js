@@ -26,4 +26,4 @@ test('get role info using function', () => {
 
     // use function getRole to overwrite role
     expect(intern.getRole()).toBe(testRole);
-})
+});

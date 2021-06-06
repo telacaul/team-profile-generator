@@ -24,4 +24,4 @@ test('get job role info', () => {
     const employee = new Employee('Tela', 2265, role);
 
     expect(employee.role).toBe(role);
-})
+});

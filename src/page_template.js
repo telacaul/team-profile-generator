@@ -12,85 +12,84 @@ const createProfile = profile => {
           <p> Email: ${manager.getEmail()}</p>
           <p> Office Number: ${manager.getPhoneNumber()}</p>
       </div>
-      `;
-    };
-  
-  
-    // Engineer profile section
-    const engineerSection = engineer => {
-      return `
-      <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-          <h3 class="portfolio-item-title text-light">${engineer.getName()}</h3>
-          <h5 class="portfolio-languages">
-              Job Title:
-              ${engineer.getRole()}
-          </h5>
-          <p> ID: ${engineer.getID()}</p>
-          <p> Email: ${engineer.getEmail()}</p>
-          <a href="#" class="btn mt-auto"><i class="fab fa-github mr-2"></i>${engineer.getGitHub()}</a>
-      </div>
-      `;
-    };
-  
-    // Intern profile section
-    const internSection = intern => {
-      return `
-      <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-          <h3 class="portfolio-item-title text-light">${intern.getName()}</h3>
-          <h5 class="portfolio-languages">
-              Job Title:
-              ${intern.getRole()}
-          </h5>
-          <p> ID: ${intern.getID()}</p>
-          <p> Email: ${intern.getEmail()}</p>
-          <p> School: ${intern.getSchool()}</p>
-      </div>
-      `;
-    };
-  
-    const htmlPage = [];
-  
-    htmlPage.push(profile
-      .filter(employee => employee.getRole() === 'Manager')
-      .map(manager => managerSection(manager))
-    );
-  
-    htmlPage.push(profile
-      .filter(employee => employee.getRole() === 'Engineer')
-      .map(engineer => engineerSection(engineer))
-      .join('')
-    );
-  
-    htmlPage.push(profile
-      .filter(employee => employee.getRole() === 'Intern')
-      .map(intern => internSection(intern))
-      .join('')
-    );
-  
-    return htmlPage.join('');
-  
+    `;
   };
   
   
-  // Export to HTML page
+ // Engineer profile section
+ const engineerSection = engineer => {
+    return `
+    <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
+        <h3 class="portfolio-item-title text-light">${engineer.getName()}</h3>
+        <h5 class="portfolio-languages">
+            Job Title:
+            ${engineer.getRole()}
+        </h5>
+        <p> ID: ${engineer.getID()}</p>
+        <p> Email: ${engineer.getEmail()}</p>
+        <a href="#" class="btn mt-auto"><i class="fab fa-github mr-2"></i>${engineer.getGitHub()}</a>
+    </div>
+    `;
+ };
   
-  module.exports = profile => {
+ // Intern profile section
+ const internSection = intern => {
+    return `
+    <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
+        <h3 class="portfolio-item-title text-light">${intern.getName()}</h3>
+        <h5 class="portfolio-languages">
+            Job Title:
+            ${intern.getRole()}
+        </h5>
+        <p> ID: ${intern.getID()}</p>
+        <p> Email: ${intern.getEmail()}</p>
+        <p> School: ${intern.getSchool()}</p>
+    </div>
+    `;
+ };
   
-      return `
-      <!DOCTYPE html>
-      <html lang="en">
+ const htmlPage = [];
+  
+ htmlPage.push(profile
+    .filter(employee => employee.getRole() === 'Manager')
+    .map(manager => managerSection(manager))
+ );
+  
+ htmlPage.push(profile
+    .filter(employee => employee.getRole() === 'Engineer')
+    .map(engineer => engineerSection(engineer))
+    .join('')
+ );
+  
+ htmlPage.push(profile
+    .filter(employee => employee.getRole() === 'Intern')
+    .map(intern => internSection(intern))
+    .join('')
+ );
+  
+ return htmlPage.join('');
+
+};
+  
+// Export to HTML page
+  
+module.exports = profile => {
+  
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
     
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Portfolio Demo</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../src/css/style.css">
-      </head>
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Portfolio Demo</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="../src/css/style.css">
+    </head>
     
-      <body>
+    <body>
         <header>
           <div class="container flex-row justify-space-between align-center py-3">
             <h1 class="page-title text-secondary bg-dark py-2 px-3">Meet the team!</h1>
@@ -110,9 +109,9 @@ const createProfile = profile => {
         <footer class="container text-center py-3">
           <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Tela Caul</h3>
         </footer>
-      </body>
-      </html>
-      `;
-  };
+    </body>
+    </html>
+    `;
+};
   
-  // module.exports = generatePage;
+module.exports = generatePage;
