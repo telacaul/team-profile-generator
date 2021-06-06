@@ -114,4 +114,4 @@ module.exports = profile => {
     `;
 };
   
-module.exports = generatePage;
+//module.exports = generatePage;
