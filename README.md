@@ -1,4 +1,4 @@
-#### Welcome to the Team Profile Generator 
+## Welcome to the Team Profile Generator 
 This Node.js command line application takes in information about a company's employees and generates an HTML webpage that displays a summary. Jest was used to run tests (npm start test) and Inquirer for collecting user input (node index) in the command line. 
 
 ### Screenshot
